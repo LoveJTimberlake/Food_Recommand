@@ -112,8 +112,8 @@ class Recommand_System():
     	def Cal_UserCF(self):    #计算用户相似度
     
     
-    	def Recommand(self,user_id):    #根据用户ID返回其推荐列表
-        
+    	def Recommand(self,user_id):    #在相似度矩阵中找到相似度高的前五名用户以及前二十相似物品，根据用户ID返回其推荐列表
+       		
 
         	fav_tag_list = set()
         
@@ -125,3 +125,8 @@ class Recommand_System():
         
         	for i in range(0,len(RS_Tags_List)):
 
+	
+	
+	#下一步，可以进行对其用深度学习
+	
+	
