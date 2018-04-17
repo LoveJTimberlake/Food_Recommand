@@ -109,6 +109,9 @@ class WebServer():
 
 	@app.route('/http://lcoalhost:8080/v1/backend/food/sync/user/add-comment',methods = ['POST'])
 	def Added_Comment_Annalysic(self):
+		
+		#add the func to change the table user_id---Comment_Time(+1)  
+		
 		DB_conn = pymysql.connect(host = 'localhost',user = 'user',password = '',db = 'db', charset = 'utf8mb4',cursorclass = pymysql.cursors.DictCursor)
 		a = requests.get_data()
 		dict5 = json.loads(a)
