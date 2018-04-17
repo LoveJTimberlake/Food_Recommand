@@ -82,3 +82,4 @@ cursor_6.execute(DataL_Init_4)
 db.commit()
 cursor_6.close() 
 
+#Here should init a new table: user_id--- Comment_Times 
