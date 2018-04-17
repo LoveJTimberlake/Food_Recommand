@@ -7,12 +7,13 @@ import math
 
 #功能：1.从数据库中生成User_Tags与Food_Tags的字典	2.计算User与Food的两个相似矩阵   3.针对用户喜爱的食物来调整其拥有的标签的权重   4.根据用户ID来返回推荐列表
 
-RS_Tags_List = ISQL.Tags_List
-Food_ID_Set = set()
-User_ID_Set = set()
+
+RS_Tags_List = ISQL.Tags_List	#should be moved to __Init__()	all of below 
+Food_ID_Set = set()	#Need to be inited befoe running
+User_ID_Set = set()	#Need to be inited befoe running
 UserCF_Matrix = dict() 
 ItemCF_Matrix = dict()	
-Food_AveScore = dict() 
+Food_AveScore = dict() 	#This is meaned to be created by searching in the DB
 
 
 class Recommand_System():
