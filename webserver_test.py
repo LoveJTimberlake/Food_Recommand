@@ -16,7 +16,7 @@ import requests
 
 def Post_Data_Test():
 	url = 'http://127.0.0.1:5000/'
-	values = {'id':'new_user','num':'123','tags' : ['tian','la','suan'],'food':['酸菜鱼','红皮鸭子']}
+	values = {'id':'13342','num':'123','tags' : ['tian','la','suan'],'food':['酸菜鱼','红皮鸭子']}
 	d = json.dumps(values)
 	headers =  {'Content-Type':'application/json'}
 	req = requests.post(url,headers = headers,data = d)
