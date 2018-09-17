@@ -185,7 +185,13 @@ class RSystem:
 						part_result += User_Tags[user_i][self.RS_Tags_List[i]] * User_Tags[user_j][self.RS_Tags_List[i]]
 					self.UserCF_Matrix[user_i][user_j] = part_result/(len_vi * len_vj)	
 		DB_conn.close()
+'''
+	def Feature_Connection_Mining(self):
+		#根据用户的喜爱食物对其进行关联搜索，对每个用户的喜欢模式找出最频繁项
+'''
 
+
+	
 
     #推荐算法中用USerCF来线下计算并定时提供好推荐列表，再用ItemCF来进行当用户收藏了食物之后的实时计算
 
@@ -198,8 +204,8 @@ class RSystem:
 
 	def Recommand(self,user_id):    #根据用户ID返回其推荐列表		
         #先根据用户相似度抽取相似度高的用户收藏的食物用于推荐
-		UserCF_Recommand_List = list()
-		if user_id in self.UserCF_Matrix: 
+        UserCF_Recommand_List = list()
+        if user_id in self.UserCF_Matrix: 
 			Top_Sim_User_List = sorted(self.UserCF_Matrix[user_id],key = lambda item:item[1],reverse = True)		#结果为['34221', '13342']	
         	#删掉top_list中用户自身
 			Top_Sim_User_List.remove(user_id)	

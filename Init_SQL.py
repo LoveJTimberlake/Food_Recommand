@@ -4,16 +4,23 @@ from flask import Flask
 import pymysql 
 
 #初始化三个表格且值均为0：1.用户标签表   2.食物标签表    3.用户食物评分表    
+print("User_Name:")
+user_name = input()
+print("Password:")
+pw = input()
+
 
 
 #1.用户标签表
 
 #先构建好整个表格
-Tags_List = ['甜','辣','咸','苦']	#存储标签列表
-Food_List = ['947232']
+Tags_List = list()	#存储标签列表
+Tags_List = ['咸','甜','苦','辣']		#example,remained to be changed
+Food_List = list()
 #两者均要为string
-'''
-db = pymysql.connect(host = 'localhost',user = 'mozart',password = 'mozewei19980206',db = 'db', charset = 'utf8mb4',cursorclass = pymysql.cursors.DictCursor)	#doubts			数据库权限初始化：grant all  on *.* to 'mozart'@'localhost' identified by 'mozewei19980206';
+
+
+db = pymysql.connect(host = 'localhost',user = user_name,password = pw,db = 'db', charset = 'utf8mb4',cursorclass = pymysql.cursors.DictCursor)	#doubts			数据库权限初始化：grant all  on *.* to 'mozart'@'localhost' identified by 'mozewei19980206';
 
 
 cursor_1 = db.cursor()	#cursor作为数据库操作单位
@@ -34,6 +41,7 @@ cursor_2.close()
 
 
 #2.食物标签表
+
 
 #先构建好整个表格
 cursor_3 = db.cursor()
@@ -83,11 +91,23 @@ cursor_6.execute(DataL_Init_4)
 db.commit()
 cursor_6.close() 
 
+
+#创建用户评论次数表		User_CT
 cursor_7 = db.cursor() 
 cursor_7.execute("""Create Table User_CT(
-				User_ID varchar(20) not null primary key,
-				Comment_Times	int(4) null default 0
+				User_ID varChar(20) NOT NULL primary key,
+				Comment_Times int(4) NULL default 0
 				)""")
 db.commit() 
 cursor_7.close()
-'''
+
+#创建用户FavFood表
+
+cursor_8 = db.cursor()
+cursor_8.execute("""Create Table User_FavFood(
+				User_ID varChar(20) NOT NULL,
+				Fav_Food varChar(20) NOT NULL
+				)""")
+db.commit()
+cursor_8.close()
+
